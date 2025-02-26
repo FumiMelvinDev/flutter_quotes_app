@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _fetchQuote() async {
     try {
-      final quote = await QuotesServices().fetchRandomQuote();
+      final quote = await QuotesServices().fetchLoveQuotes();
       setState(() {
         _quote = quote;
       });
@@ -48,47 +48,67 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _fetchQuote();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
-        child: Center(
-          child:
-              _quote == null
-                  ? const CircularProgressIndicator()
-                  : Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        _quote!.text,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w400,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        _quote!.author,
-                        style: TextStyle(
-                          fontStyle: FontStyle.italic,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Builder(
+                builder: (BuildContext context) {
+                  return IconButton(
+                    icon: const Icon(Icons.menu),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                  );
+                },
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Center(
+                  child:
+                      _quote == null
+                          ? const CircularProgressIndicator()
+                          : Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                _quote!.text,
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                _quote!.author,
+                                style: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                ),
+              ),
+            ),
+          ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _fetchQuote,
-        child: const Icon(Icons.refresh),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _fetchQuote,
+          child: const Icon(Icons.refresh),
+        ),
       ),
     );
   }
