@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:quotary_app/models/quote_model.dart';
 import 'package:quotary_app/services/quotes_services.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class CreativityPage extends StatefulWidget {
+  const CreativityPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CreativityPage> createState() => _CreativityPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CreativityPageState extends State<CreativityPage> {
   Quote? _quote;
 
   _fetchQuote() async {
     try {
-      final quote = await QuotesServices().fetchRandomQuote();
+      final quote = await QuotesServices().fetchCreativityQuotes();
       setState(() {
         _quote = quote;
       });
