@@ -21,9 +21,13 @@ class QuotesServices {
     }
   }
 
-  // Fetch business quotes
-  Future<Quote> fetchBusinessQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=business'));
+  // Fetch Achievement & Motivation quotes
+  Future<Quote> fetchAchievementAndMotivationQuotes() async {
+    final response = await http.get(
+      Uri.parse(
+        '$BASE_URL&tags=business|competition|inspirational|leadership|motivational|opportunity|power-quotes|success|work',
+      ),
+    );
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
       if (jsonResponse.isNotEmpty) {
@@ -36,9 +40,11 @@ class QuotesServices {
     }
   }
 
-  // Fetch creativity quotes
-  Future<Quote> fetchCreativityQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=creativity'));
+  // Fetch Arts & Expression quotes
+  Future<Quote> fetchArtsAndExpressionQuotes() async {
+    final response = await http.get(
+      Uri.parse('$BASE_URL&tags=film|famous-quotes|humor|humorous'),
+    );
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
       if (jsonResponse.isNotEmpty) {
@@ -51,10 +57,12 @@ class QuotesServices {
     }
   }
 
-  // Fetch education, mathematics and science quotes
-  Future<Quote> fetchEducationQuotes() async {
+  // Fetch Knowledge & Creativity quotes
+  Future<Quote> fetchKnowledgeAndCreativityQuotes() async {
     final response = await http.get(
-      Uri.parse('$BASE_URL&tags=education, mathematics, science'),
+      Uri.parse(
+        '$BASE_URL&tags=creativity|education|genius|imagination|knowledge|literature|mathematics|science|wisdom',
+      ),
     );
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
@@ -68,9 +76,13 @@ class QuotesServices {
     }
   }
 
-  // Fetch ethics quotes
-  Future<Quote> fetchEthicsQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=ethics'));
+  // Fetch Life & Growth quotes
+  Future<Quote> fetchLifeAndGrowthQuotes() async {
+    final response = await http.get(
+      Uri.parse(
+        '$BASE_URL&tags=age|change|character|courage|failure|future|happiness|life|pain|perseverance|self|self-help|time|weakness|wellness',
+      ),
+    );
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
       if (jsonResponse.isNotEmpty) {
@@ -83,9 +95,11 @@ class QuotesServices {
     }
   }
 
-  //  Fetch Family quotes
-  Future<Quote> fetchFamilyQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=family'));
+  //  Fetch Philosophy & Concepts quotes
+  Future<Quote> fetchPhilosophyAndConceptsQuotes() async {
+    final response = await http.get(
+      Uri.parse('$BASE_URL&tags=philosophy|proverb|truth|time|change|future'),
+    );
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
       if (jsonResponse.isNotEmpty) {
@@ -98,9 +112,13 @@ class QuotesServices {
     }
   }
 
-  // Fetch famous quotes
-  Future<Quote> fetchFamousQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=famous-quotes'));
+  // Fetch Society & Interactions quotes
+  Future<Quote> fetchSocietyAndInteractionQuotes() async {
+    final response = await http.get(
+      Uri.parse(
+        '$BASE_URL&tags=family|friendship|humor|humorous|love|philosophy|politics|social-justice|society',
+      ),
+    );
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
       if (jsonResponse.isNotEmpty) {
@@ -113,9 +131,11 @@ class QuotesServices {
     }
   }
 
-  // Fetch film quotes
-  Future<Quote> fetchFilmQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=film'));
+  // Fetch Sports & Competition quotes
+  Future<Quote> fetchSportsAndCompetitionQuotes() async {
+    final response = await http.get(
+      Uri.parse('$BASE_URL&tags=athletics|sports|competition'),
+    );
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
       if (jsonResponse.isNotEmpty) {
@@ -128,9 +148,9 @@ class QuotesServices {
     }
   }
 
-  // Fetch friendship quotes
-  Future<Quote> fetchFriendshipQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=friendship'));
+  // Fetch Technology quotes
+  Future<Quote> fetchTechnologyQuotes() async {
+    final response = await http.get(Uri.parse('$BASE_URL&tags=technology'));
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
       if (jsonResponse.isNotEmpty) {
@@ -143,9 +163,13 @@ class QuotesServices {
     }
   }
 
-  // Fetch happiness quotes
-  Future<Quote> fetchHappinessQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=happiness'));
+  // Fetch Values & Spirituality quotes
+  Future<Quote> fetchValuesAndSpiritualityQuotes() async {
+    final response = await http.get(
+      Uri.parse(
+        '$BASE_URL&tags=ethics|faith|generosity|gratitude|honor|religion|spirituality|tolerance|truth|virtue|conservative|freedom',
+      ),
+    );
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
       if (jsonResponse.isNotEmpty) {
@@ -158,40 +182,10 @@ class QuotesServices {
     }
   }
 
-  // Fetch history quotes
-  Future<Quote> fetchHistoryQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=history'));
-    if (response.statusCode == 200) {
-      final List<dynamic> jsonResponse = json.decode(response.body);
-      if (jsonResponse.isNotEmpty) {
-        return Quote.fromJson(jsonResponse[0]);
-      } else {
-        throw Exception('No quotes found');
-      }
-    } else {
-      throw Exception('Failed to load history quotes');
-    }
-  }
-
-  // Fetch humor and humorous quotes
-  Future<Quote> fetchHumorQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=humor,humorous'));
-    if (response.statusCode == 200) {
-      final List<dynamic> jsonResponse = json.decode(response.body);
-      if (jsonResponse.isNotEmpty) {
-        return Quote.fromJson(jsonResponse[0]);
-      } else {
-        throw Exception('No quotes found');
-      }
-    } else {
-      throw Exception('Failed to load humor quotes');
-    }
-  }
-
-  // Fetch imagination, inspirational and motivational quotes
-  Future<Quote> fetchInspirationalQuotes() async {
+  // Fetch World & History quotes
+  Future<Quote> fetchWorldAndHistoryQuotes() async {
     final response = await http.get(
-      Uri.parse('$BASE_URL&tags=imagination,inspirational,motivational'),
+      Uri.parse('$BASE_URL&tags=health|history|nature|war'),
     );
     if (response.statusCode == 200) {
       final List<dynamic> jsonResponse = json.decode(response.body);
@@ -201,22 +195,7 @@ class QuotesServices {
         throw Exception('No quotes found');
       }
     } else {
-      throw Exception('Failed to load inspirational quotes');
-    }
-  }
-
-  // Fetch love quotes
-  Future<Quote> fetchLoveQuotes() async {
-    final response = await http.get(Uri.parse('$BASE_URL&tags=love'));
-    if (response.statusCode == 200) {
-      final List<dynamic> jsonResponse = json.decode(response.body);
-      if (jsonResponse.isNotEmpty) {
-        return Quote.fromJson(jsonResponse[0]);
-      } else {
-        throw Exception('No quotes found');
-      }
-    } else {
-      throw Exception('Failed to load love quotes');
+      throw Exception('Failed to load history quotes');
     }
   }
 }

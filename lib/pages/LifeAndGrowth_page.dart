@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:quotary_app/models/quote_model.dart';
 import 'package:quotary_app/services/quotes_services.dart';
 
-class FamousPage extends StatefulWidget {
-  const FamousPage({super.key});
+class LifeandgrowthPage extends StatefulWidget {
+  const LifeandgrowthPage({super.key});
 
   @override
-  State<FamousPage> createState() => _FamousPageState();
+  State<LifeandgrowthPage> createState() => _LifeandgrowthPageState();
 }
 
-class _FamousPageState extends State<FamousPage> {
+class _LifeandgrowthPageState extends State<LifeandgrowthPage> {
   Quote? _quote;
 
   _fetchQuote() async {
     try {
-      final quote = await QuotesServices().fetchFamousQuotes();
+      final quote = await QuotesServices().fetchLifeAndGrowthQuotes();
       setState(() {
         _quote = quote;
       });

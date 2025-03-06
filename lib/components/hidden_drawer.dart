@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
-import 'package:quotary_app/pages/Business_page.dart';
-import 'package:quotary_app/pages/Creativity_page.dart';
-import 'package:quotary_app/pages/Education_page.dart';
-import 'package:quotary_app/pages/Ethics_page.dart';
-import 'package:quotary_app/pages/Family_page.dart';
-import 'package:quotary_app/pages/Famous_page.dart';
-import 'package:quotary_app/pages/Film_page.dart';
-import 'package:quotary_app/pages/Friendship_page.dart';
-import 'package:quotary_app/pages/Happiness_page.dart';
-import 'package:quotary_app/pages/History_page.dart';
+import 'package:quotary_app/pages/AchievementAndMotivation_page.dart';
+import 'package:quotary_app/pages/ArtsAndExpression_page.dart';
 import 'package:quotary_app/pages/Home_page.dart';
-import 'package:quotary_app/pages/Humor_page.dart';
-import 'package:quotary_app/pages/Inspirational_page.dart';
-import 'package:quotary_app/pages/Love_page.dart';
+import 'package:quotary_app/pages/KnowledgeAndCreativity_page.dart';
+import 'package:quotary_app/pages/LifeAndGrowth_page.dart';
+import 'package:quotary_app/pages/PhilosophyAndConcepts_page.dart';
+import 'package:quotary_app/pages/SocietyAndInteraction_page.dart';
+import 'package:quotary_app/pages/SportsAndCompetition_page.dart';
+import 'package:quotary_app/pages/Technology_page.dart';
+import 'package:quotary_app/pages/ValuesAndSpirituality_page.dart';
+import 'package:quotary_app/pages/WorldAndHistory_page.dart';
 
 class HiddenDrawer extends StatefulWidget {
   const HiddenDrawer({super.key});
@@ -26,14 +23,14 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
   List<ScreenHiddenDrawer> _pages = [];
 
   final myBaseStyle = TextStyle(
-    color: Colors.black45,
+    color: Colors.blueGrey[200],
     fontSize: 18,
     fontWeight: FontWeight.w500,
     fontFamily: 'Roboto',
   );
 
   final mySelectedStyle = TextStyle(
-    color: Colors.black87,
+    color: Colors.blueGrey[400],
     fontWeight: FontWeight.w600,
   );
 
@@ -44,115 +41,91 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
     _pages = [
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Home',
+          name: 'Random',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
         HomePage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Business Quotes',
+          name: 'Achievement & Motivation',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        BusinessPage(),
+        AchievementandmotivationPage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Creativity Quotes',
+          name: 'Arts & Expression',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        CreativityPage(),
+        ArtsandexpressionPage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Educational Quotes',
+          name: 'Knowledge & Creativity',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        EducationPage(),
+        KnowledgeandcreativityPage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Ethics Quotes',
+          name: 'Life & Growth',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        EthicsPage(),
+        LifeandgrowthPage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Family Quotes',
+          name: 'Philosophy & Concepts',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        FamilyPage(),
+        PhilosophyandconceptsPage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Famous Quotes',
+          name: 'Society & Interactions',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        FamousPage(),
+        SocietyandinteractionPage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Film Quotes',
+          name: 'Sports & Competition',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        FilmPage(),
+        SportsandcompetitionPage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Friendship Quotes',
+          name: 'Technology',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        FriendshipPage(),
+        TechnologyPage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'Happiness Quotes',
+          name: 'Values & Spirituality',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        HappinessPage(),
+        ValuesandspiritualityPage(),
       ),
       ScreenHiddenDrawer(
         ItemHiddenMenu(
-          name: 'History Quotes',
+          name: 'World & History',
           baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
+          selectedStyle: mySelectedStyle,
         ),
-        HistoryPage(),
-      ),
-      ScreenHiddenDrawer(
-        ItemHiddenMenu(
-          name: 'Humor Quotes',
-          baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
-        ),
-        HumorPage(),
-      ),
-      ScreenHiddenDrawer(
-        ItemHiddenMenu(
-          name: 'Inspirational Quotes',
-          baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
-        ),
-        InspirationalPage(),
-      ),
-      ScreenHiddenDrawer(
-        ItemHiddenMenu(
-          name: 'Love Quotes',
-          baseStyle: myBaseStyle,
-          selectedStyle: TextStyle(),
-        ),
-        LovePage(),
+        WorldandhistoryPage(),
       ),
     ];
   }
@@ -163,7 +136,7 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
       backgroundColorMenu: Colors.white54,
       screens: _pages,
       initPositionSelected: 0,
-      slidePercent: 50,
+      slidePercent: 60,
     );
   }
 }
